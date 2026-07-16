@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>植感練習週記 — 花開製作所</title>
+<meta name="description" content="用最輕鬆的方式，跟我一起畫畫。每週撥出一點點時間，體驗畫畫的樂趣與療癒。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+:root {
+  --brand: #4E6824;
+  --brand-light: #e8f0dc;
+  --brand-dark: #3a4e1a;
+  --warm-bg: #faf8f4;
+  --text-main: #2c2c2a;
+  --text-sub: #6b6b65;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  background: var(--warm-bg);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+}
+.hero {
+  text-align: center;
+  padding: 2.5rem 1.25rem 1.5rem;
+}
+.hero-badge {
+  display: inline-block;
+  background: var(--brand);
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--brand);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+.hero p {
+  font-size: 14px;
+  color: var(--text-sub);
+  line-height: 1.8;
+}
+.section {
+  padding: 0 1.25rem;
+  margin-bottom: 1.75rem;
+}
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.section-label .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand);
+  flex-shrink: 0;
+}
+.section-label span {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-main);
+}
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.pain-item {
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  color: var(--text-sub);
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.pain-item i {
+  color: var(--brand);
+  font-size: 14px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.divider {
+  height: 0.5px;
+  background: #e0e0dc;
+  margin: 0 1.25rem 1.75rem;
+}
+.intent-box {
+  background: var(--brand-light);
+  border-radius: 12px;
+  margin: 0 1.25rem 1.75rem;
+  padding: 1.25rem;
+}
+.intent-box p {
+  font-size: 13.5px;
+  color: var(--text-main);
+  line-height: 2;
+}
+.intent-box .highlight {
+  color: var(--brand);
+  font-weight: 500;
+}
+.timeline {
+  position: relative;
+  padding-left: 20px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  bottom: 8px;
+  width: 1.5px;
+  background: var(--brand-light);
+}
+.week {
+  position: relative;
+  margin-bottom: 18px;
+}
+.week:last-child { margin-bottom: 0; }
+.week::before {
+  content: '';
+  position: absolute;
+  left: -17px;
+  top: 6px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1.5px solid var(--brand);
+  background: var(--warm-bg);
+}
+.week-num {
+  font-size: 11px;
+  color: var(--brand);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+.week-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+.week-desc {
+  font-size: 12.5px;
+  color: var(--text-sub);
+  line-height: 1.6;
+}
+.tier-card {
+  background: #fff;
+  border: 0.5px solid #e0e0dc;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 12px;
+}
+.tier-card.featured {
+  border: 2px solid var(--brand);
+  position: relative;
+}
+.tier-card.featured::after {
+  content: 'PREMIUM';
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 1px;
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+.tier-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+.tier-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--brand);
+  margin-bottom: 4px;
+}
+.tier-price small {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-sub);
+}
+.tier-note {
+  font-size: 12px;
+  color: var(--text-sub);
+  margin-bottom: 12px;
+}
+.tier-list {
+  list-style: none;
+}
+.tier-list li {
+  font-size: 13px;
+  color: var(--text-main);
+  padding: 5px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+.tier-list li i {
+  color: var(--brand);
+  font-size: 14px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.tier-list li.disabled {
+  color: var(--text-sub);
+  opacity: 0.5;
+}
+.tier-list li.disabled i {
+  color: var(--text-sub);
+}
+.yearly-save {
+  display: inline-block;
+  background: #f0c040;
+  color: #5a4200;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 8px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.join-section {
+  background: var(--brand-light);
+  border-radius: 12px;
+  margin: 0 1.25rem 1.75rem;
+  padding: 1.25rem;
+  text-align: center;
+}
+.join-section p {
+  font-size: 13.5px;
+  color: var(--text-main);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.join-section .highlight {
+  color: var(--brand);
+  font-weight: 500;
+}
+.footer-note {
+  text-align: center;
+  padding: 0 1.25rem;
+}
+.footer-note p {
+  font-size: 12px;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+.brand-mark {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 12px;
+  color: var(--text-sub);
+  letter-spacing: 0.5px;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-badge">WEEKLY SKETCH</div>
+    <h1>植感練習週記</h1>
+    <p>用最輕鬆的方式，跟我一起畫畫</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">
+      <div class="dot"></div>
+      <span>你是不是也這樣？</span>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-item">
+        <i class="ti ti-pencil" aria-hidden="true"></i>
+        打開 iPad 不知道要畫什麼
+      </div>
+      <div class="pain-item">
+        <i class="ti ti-droplet" aria-hidden="true"></i>
+        水彩暈染永遠抓不到感覺
+      </div>
+      <div class="pain-item">
+        <i class="ti ti-mood-empty" aria-hidden="true"></i>
+        點評聽完了回家還是畫不出來
+      </div>
+      <div class="pain-item">
+        <i class="ti ti-chart-line" aria-hidden="true"></i>
+        想穩定進步不想憑感覺畫
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="intent-box">
+    <p>
+      這個計畫的初衷很簡單——<br>
+      在忙碌的生活中，讓你抽出<span class="highlight">一點點時間</span>，<br>
+      就能體驗畫畫的樂趣與療癒。
+    </p>
+    <p style="margin-top: 10px;">
+      我們沒有緊湊的學習進度，<br>
+      每個禮拜只要撥出一點點時間，<br>
+      這就是<span class="highlight">植感練習週記</span>最核心的事。
+    </p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">
+      <div class="dot"></div>
+      <span>每月計畫（Premium 內容）</span>
+    </div>
+    <div class="timeline">
+      <div class="week">
+        <div class="week-num">WEEK 1</div>
+        <div class="week-title">公佈主題</div>
+        <div class="week-desc">公佈當月主題，先自己動手畫畫看</div>
+      </div>
+      <div class="week">
+        <div class="week-num">WEEK 2</div>
+        <div class="week-title">教學＋點評</div>
+        <div class="week-desc">上架教學影片，同時點評大家的作品</div>
+      </div>
+      <div class="week">
+        <div class="week-num">WEEK 3</div>
+        <div class="week-title">延伸練習</div>
+        <div class="week-desc">同主題延伸線稿，多畫一次更有感</div>
+      </div>
+      <div class="week">
+        <div class="week-num">WEEK 4</div>
+        <div class="week-title">調色練習</div>
+        <div class="week-desc">調色小練習，抓住水彩暈染的「剛剛好」</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">
+      <div class="dot"></div>
+      <span>訂閱方案</span>
+    </div>
+
+    <div class="tier-card">
+      <div class="tier-name">Free 免費會員</div>
+      <div class="tier-price">$0 <small>/ 月</small></div>
+      <div class="tier-note">加入 Skool 社群即可</div>
+      <ul class="tier-list">
+        <li><i class="ti ti-check" aria-hidden="true"></i>每月主題跟練</li>
+        <li><i class="ti ti-check" aria-hidden="true"></i>作品點評直播 QA（無回放）</li>
+        <li class="disabled"><i class="ti ti-x" aria-hidden="true"></i>教學影片回放</li>
+        <li class="disabled"><i class="ti ti-x" aria-hidden="true"></i>延伸線稿練習</li>
+        <li class="disabled"><i class="ti ti-x" aria-hidden="true"></i>每月調色共學直播</li>
+      </ul>
+    </div>
+
+    <div class="tier-card featured">
+      <div class="tier-name">Premium 訂閱制</div>
+      <div class="tier-price">$10 美金 <small>/ 月</small></div>
+      <div class="tier-note">或 $108 美金 / 年（省 $12）<span class="yearly-save">9 折</span></div>
+      <ul class="tier-list">
+        <li><i class="ti ti-check" aria-hidden="true"></i>每月主題跟練</li>
+        <li><i class="ti ti-check" aria-hidden="true"></i>作品點評直播 QA（含回放）</li>
+        <li><i class="ti ti-check" aria-hidden="true"></i>教學影片回放</li>
+        <li><i class="ti ti-check" aria-hidden="true"></i>同主題延伸線稿練習</li>
+        <li><i class="ti ti-check" aria-hidden="true"></i>每月調色共學直播</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="join-section">
+    <p>
+      到 Skool 社群的 Classroom，<br>
+      找到<span class="highlight">「植感練習週記」</span>課程，<br>
+      點 <span class="highlight">Unlock with Premium</span> 選方案就可以了。
+    </p>
+    <p style="font-size: 12px; margin-bottom: 0;">
+      價格會隨著內容豐富度調漲，<br>
+      現在加入，永遠是最划算的時候。
+    </p>
+  </div>
+
+  <div class="footer-note">
+    <p>VIP 學員可直接解鎖 Premium 內容，不需要額外訂閱。<br>想要更多創作、周邊設計與互動時間，歡迎直上 VIP。</p>
+  </div>
+
+  <div class="brand-mark">
+    Verdia 花開植感美學實驗室
+  </div>
+
+</div>
+</body>
+</html>
